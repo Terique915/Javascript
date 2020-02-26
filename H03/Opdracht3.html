@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            margin: 0 0 0 0px;
+            padding: 0 0 0 0px;
+        }
+        body{
+            text-align: center;
+        }
+        img{
+            height:300px;
+            width: 300px;
+            border: 0px;
+        }
+        #Shuffle{
+            width: 900px;
+            height: 900px;
+            border: solid 1px black;
+            font-size: 0px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<h1>Honden Shuffle</h1>
+<div id="Shuffle">
+    <img src="img/dog.jpeg">
+    <img src="img/dog2.jpg">
+    <img src="img/dog3.jpg">
+    <img src="img/dog4.jpg">
+    <img src="img/dogs.jpg">
+    <img src="img/dog5.jpg">
+    <img src="img/dog6.jpg">
+    <img src="img/dog7.jpg">
+    <img src="img/dog8.jpg">
+</div>
+<script>
+    var plaatjes = document.getElementsByTagName("img");
+    var random = 0;
+
+    var randomNumbers= [];
+
+    while(randomNumbers.length < 9) {
+        random = Math.floor(Math.random() * 9) + 1;
+        if (randomNumbers.lastIndexOf(random) == -1) {
+            randomNumbers.push(random)
+        }
+        random = 0;
+        for (var plaatje in plaatjes) {
+            plaatjes[plaatje].src = "../img/dog" + randomNumbers[random] + ".jpg";
+            random++;
+        }
+    }
+</script>
+
+</body>
+</html>
