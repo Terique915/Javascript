@@ -12,29 +12,29 @@
     </style>
 </head>
 <body>
-    <div id="slideholder"> </div>
-    <script>
-        var plaatjes = [1,2,3,4,5,6,7,8,9];
-        var teller = 0;
-        var slideholder = document.getElementById("slideholder");
-        slideholder.style.backgroundImage = "url('img/dog1  .jpg')";
+<div id="slideholder"> </div>
+<script>
+    var plaatjes = [1,2,3,4,5,6,7,8,9];
+    var teller = 0;
+    var slideholder = document.getElementById("slideholder");
+    slideholder.style.backgroundImage = "url('img/dog1  .jpg')";
 
-        slideholder.addEventListener("click", function () {
-            slideholder.style.backgroundImage = "url('img/dog" + getDog()+ ".jpg')";
-        });
-        
-        function getDog() {
-            if(teller >= plaatjes.length){
-                teller = 1;
-            }
-            else{
-                teller ++;
-            }
-            console.log(teller);
-            return teller;
+    slideholder.addEventListener("click", function () {
+        slideholder.style.backgroundImage = "url('img/dog" + getDog()+ ".jpg')";
+    });
+
+    function getDog() {
+        if(teller >= plaatjes.length){
+            teller = 1;
         }
+        else{
+            teller ++;
+        }
+        console.log(teller);
+        return teller;
+    }
 
-    </script>
+</script>
 
 
 </body>

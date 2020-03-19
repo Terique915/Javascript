@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactief</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        div.picture-holder{
+            height:450px;
+            width: 300px;
+            float: left;
+            background-color: red;
+        }
+        div.favoriet{
+            width: 300px;
+            height: 150px;
+            background-color: blue;
+            background-image: none;
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+
+        #pics{
+            width: 900px;
+            height: 1350px;
+            border: solid black;
+            font-size: 0px;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+<h1>
+    Dog choosers
+</h1>
+<h2>Choose your favorite pic</h2>
+<div id="pics">
+
+</div>
+<script>
+    pics = document.getElementById("pics");
+    createPicsHolder();
+    createDogpics();
+
+
+    function createPicsHolder(){
+        for (var i = 0; i < 9; i++){
+                picsHolder = document.createElement("div");
+                picsHolder.className = "picture-holder";
+                picsHolder.id = "picture-holder-" + i;
+                pics.appendChild(picsHolder);
+        }
+
+
+    }
+
+
+
+    function createDogpics() {
+        picsHolder = document.getElementsByClassName("picture-holder");
+        for (var i = 0; i < picsHolder.length; i++){
+            favoriet = document.createElement("div");
+            favoriet.className = "favoriet";
+            favoriet.id = "favoriet_" + (i+1);
+            dogPics = document.createElement("img");
+            dogPics.src ="../H05/img/dog" + (i+1) + ".jpg";
+            dogPics.id =(i+1);
+            dogPics.addEventListener("click", function () {
+                maakFavoriet(this.id);
+            });
+            picsHolder[i].appendChild(favoriet);
+            picsHolder[i].appendChild(dogPics);
+        }
+    }
+    function maakFavoriet(id) {
+        console.log("maak mijn favoriet...." + id);
+        notsofavoriete = document.getElementsByClassName("favoriet");
+
+        for (var i = 0; i < notsofavoriete; i++){
+            notsofavoriete[i].style.backgroundImage = "none";
+        }
+
+        favoriet = document.getElementById("favoriet_" + id);
+        favoriet.style.backgroundImage = "url('../H05/img/heart.png')";
+
+    }
+
+</script>
+
+</body>
+</html>
