@@ -2,9 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
+    <style>
+        #slideholder,  #slideholder2,  #slideholder3{
+            height: 100px;
+            width: 300px;
+            border: 3px solid black;
+
+        }
+        #slideholder{
+            border-bottom: none;
+        }
+        #slideholder2{
+            border-bottom: solid black 1px;
+            border-top: solid black 1px;
+        }
+        #slideholder3{
+            border-top: none;
+        }
+    </style>
 </head>
 <body>
+<div id="slideholder" > </div>
+<div id="slideholder2" > </div>
+<div id="slideholder3" > </div>
+
+<script>
+    var head = [1,2,3];
+    var ogen = [1,2,3];
+    var mond = [1,2,3];
+
+    var Head = 0;
+    var Ogen =0;
+    var Mond =0;
+    var slideholder = document.getElementById("slideholder");
+    slideholder.style.backgroundImage = "url('../H04/img/head1.jpg')";
+
+    slideholder.addEventListener("click", function () {
+        getHead();
+        slideholder.style.backgroundImage = "url('../H04/img/head"  + getHead()+ ".jpg')";
+    });
+
+    var slideholder2 = document.getElementById("slideholder2");
+    slideholder2.style.backgroundImage = "url('../H04/img/ogen1.jpg')";
+
+    slideholder2.addEventListener("click", function () {
+        getOgen();
+        slideholder2.style.backgroundImage = "url('../H04/img/ogen" + getOgen()+ ".jpg')";
+    });
+
+    var slideholder3 = document.getElementById("slideholder3");
+    slideholder3.style.backgroundImage = "url('../H04/img/mond1.jpg')";
+
+    slideholder3.addEventListener("click", function () {
+        getMond();
+        slideholder3.style.backgroundImage = "url('../H04/img/mond" + getMond() + ".jpg')";
+    });
+
+    function getHead() {
+        if(Head >=head.length ){
+            Head = 1;
+        }
+        else{
+            Head ++;
+        }
+        console.log(Head);
+        return Head;
+    }
+    function getOgen() {
+        if(Ogen >= ogen.length){
+            Ogen = 1;
+        }
+        else{
+            Ogen ++;
+        }
+        console.log(Ogen);
+        return Ogen;
+    }
+    function getMond() {
+        if(Mond >= mond.length){
+            Mond = 1;
+        }
+        else{
+            Mond ++;
+        }
+        console.log(Mond);
+        return Mond;
+    }
+
+</script>
+
 
 </body>
 </html>
