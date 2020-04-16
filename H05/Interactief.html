@@ -7,7 +7,7 @@
         body{
             text-align: center;
         }
-        div.picture-holder{
+        div.dogpicture{
             height:450px;
             width: 300px;
             float: left;
@@ -43,53 +43,46 @@
 </div>
 <script>
     pics = document.getElementById("pics");
-    createPicsHolder();
-    createDogpics();
+    createPicsHolders();
+    creatFishImages();
 
-
-    function createPicsHolder(){
-        for (var i = 0; i < 9; i++){
-                picsHolder = document.createElement("div");
-                picsHolder.className = "picture-holder";
-                picsHolder.id = "picture-holder-" + i;
-                pics.appendChild(picsHolder);
+    function createPicsHolders() {
+        for(var i =1; i <= 9; i++){
+            pictureHolder = document.createElement("div");
+            pictureHolder.className = "dogpicture";
+            pictureHolder.id = "picture-holder-" + i ;
+            pics.appendChild(pictureHolder);
         }
-
-
     }
-
-
-
-    function createDogpics() {
-        picsHolder = document.getElementsByClassName("picture-holder");
-        for (var i = 0; i < picsHolder.length; i++) {
-            favoriet = document.createElement("div");
-            favoriet.className = "favoriet";
-            favoriet.id = "favoriet" + (i+1);
+    function creatFishImages() {
+        pictureHolders = document.getElementsByClassName("dogpicture");
+        for ( var i = 0; i < pictureHolders.length; i++){
+            favoriete = document.createElement("div");
+            favoriete.className = "favoriet";
+            favoriete.id = "favoriet_" + ( i + 1);
             dogPics = document.createElement("img");
-            dogPics.src ="../H05/img/dog" + (i+1) + ".jpg";
-            dogPics.id =(i+1);
+            dogPics.src= "img/dog"+(i + 1) + ".jpg";
+            dogPics.id = ( i + 1);
             dogPics.addEventListener("click", function () {
-                maakFavoriet(this.id);
+                maakFavoriete(this.id);
             });
-            picsHolder[i].appendChild(favoriet);
-            picsHolder[i].appendChild(dogPics);
+            pictureHolders[i].appendChild(favoriete);
+            pictureHolders[i].appendChild(dogPics);
         }
     }
-    function maakFavoriet(id) {
-        console.log("maak mijn favoriet...." + id);
-        notsofavoriete = document.getElementsByClassName("favoriet");
+    function maakFavoriete(id) {
+        console.log("Maak mijn Favoriet" + id );
+        notsofavoriet = document.getElementsByClassName("favoriet");
 
-        for (var i = 0; i < notsofavoriete; i++){
-            notsofavoriete[i].style.backgroundImage = "none";
+        for( var i = 0; i < notsofavoriet.length; i++){
+            notsofavoriet[i].style.backgroundImage = "none";
         }
-
-        favoriet = document.getElementById("favoriet" + id);
-        favoriet.style.backgroundImage = "url('../H05/img/heart.png')";
-
+        favoriete = document.getElementById("favoriet_" + id);
+        favoriete.style.backgroundImage ="url('img/heart.png')";
     }
 
 </script>
 
 </body>
 </html>
+
